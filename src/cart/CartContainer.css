@@ -1,0 +1,65 @@
+.cart {
+  width: 20px;
+  height: 20px;
+  /* border: 1px solid blue; */
+  cursor: pointer;
+  position: relative;
+}
+.amountOfItems {
+  position: absolute;
+  left: 60%;
+  top: -20%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  font-size: 12px;
+}
+.active {
+  position: absolute;
+  top: 250%;
+  left: -1500%;
+  z-index: 10;
+  width: 325px;
+  height: 540px;
+  background-color: #ffffff;
+  border: 1px solid rgb(196, 196, 196);
+}
+.inactive {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.eachItem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.myFlexParent {
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 0;
+  align-items: center;
+  text-align: center;
+}
+.myFlexChild {
+  width: 90%;
+  height: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.b {
+  text-transform: capitalize;
+}

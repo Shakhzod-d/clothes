@@ -1,0 +1,56 @@
+.myInlineSpan {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin: 10px;
+}
+.parent {
+  width: 100%;
+  height: 30%;
+  display: flex;
+}
+.child {
+  margin: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 32%;
+}
+.child p {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+.itemQuentity {
+  text-align: center;
+}
+.child span {
+  font-weight: 500;
+  font-family: Raleway;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 160%;
+  text-align: left;
+}
+.cardImage {
+  border-radius: 8px;
+}
+.btnn {
+  width: 24px;
+  height: 24px;
+  margin: 5px 0;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+}
+.myButtons {
+  display: flex;
+  justify-content: space-between;
+}
+.plusMinusBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

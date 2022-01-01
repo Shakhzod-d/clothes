@@ -1,0 +1,40 @@
+.headerParent {
+  width: 100vw;
+  height: 80px;
+  box-sizing: border-box;
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  align-items: center;
+}
+.navbar {
+  width: 80vw;
+  height: 80px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+}
+.nav-links {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  place-items: center;
+}
+/* .nav-icon {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  border: 1px solid blue;
+  justify-content: flex-start;
+} */
+.nav-cart {
+  width: 120px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.animate__animated.animate__bounce {
+  --animate-duration: 2s;
+}

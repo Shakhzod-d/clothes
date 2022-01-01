@@ -1,0 +1,25 @@
+.products {
+  width: 100vw;
+  height: 90vh;
+  /* border: 1px solid green; */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.products-container {
+  width: 75vw;
+  height: 90vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.eachCard {
+  margin: 20px 10px;
+}
