@@ -8,26 +8,13 @@ import Items from './data/data';
 
 function App() {
 	const [ listItems, setListItems ] = useState(Items);
-	const [ items, setItems ] = useState([]);
-	// console.log(items);
 
 	return (
 		<React.Fragment>
 			<Router>
-				<Header items={items} />
+				<Header />
 				<Routes>
-					<Route
-						exact
-						path="/"
-						element={
-							<Women
-								listItems={listItems}
-								setListItems={setListItems}
-								items={items}
-								setItems={setItems}
-							/>
-						}
-					/>
+					<Route exact path="/" element={<Women listItems={listItems} />} />
 					<Route path="/men" element={<Men />} />
 					<Route path="/kids" element={<Kids />} />
 				</Routes>

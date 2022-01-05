@@ -1,15 +1,21 @@
 import { useState } from 'react';
 import Card from '../../card/card';
+import { useGlobalContext } from '../../context';
 
 import './style/women.css';
 
-function Women({ listItems, setListItems, items, setItems }) {
+function Women({ listItems }) {
+	const { handleAddToCart } = useGlobalContext();
 	return (
 		<main className="products">
 			<div className="products-container">
 				{listItems.map((listItem) => {
 					const { id, title, img, price } = listItem;
-					const addToCart = (item) => setItems((currentCart) => [ ...currentCart, item ]);
+					// const addToCart = (item) => setItems((currentCart) => [ ...currentCart, item ]);
+					// const addToCart = (item) => {
+					// 	BoughtItems.push(item);
+					// 	console.log(`${item} is added`);
+					// };
 
 					// console.log(items + 'card' + 'added');
 
@@ -22,7 +28,7 @@ function Women({ listItems, setListItems, items, setItems }) {
 								<button
 									className="btn btn-primary"
 									onClick={() => {
-										addToCart(listItem);
+										handleAddToCart(listItem);
 									}}
 								>
 									Add to Card

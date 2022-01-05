@@ -4,12 +4,13 @@ import '../cartItems/CartItems.css';
 
 const CartItem = ({ id, img, title, price, amount }) => {
 	const { removeItem, increase, decrease } = useGlobalContext();
-	// console.log(useGlobalContext);
+	const totalPrice = `$${(+price.slice(1) * amount).toFixed(2)}`;
+
 	return (
 		<article key={id} className="parent">
 			<div className="child">
 				<p>{title}</p>
-				<span className="item-price">{`${price}`}</span>
+				<span className="item-price">{totalPrice}</span>
 				{/* remove button */}
 				<button className="remove-btn" onClick={() => removeItem(id)}>
 					remove

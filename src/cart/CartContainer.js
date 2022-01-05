@@ -6,9 +6,8 @@ import { useGlobalContext } from '../context';
 import './CartContainer.css';
 
 const CartContainer = () => {
-	const { cart, total, clearCart, amount } = useGlobalContext();
+	const { cart, totalProducts, clearCart } = useGlobalContext();
 	const [ isActive, setActive ] = useState(false);
-	// console.log(items);
 
 	return (
 		<section className="cart">
@@ -21,12 +20,10 @@ const CartContainer = () => {
 			{/* cart items */}
 			<div className={isActive ? 'active' : 'inactive'}>
 				<p className="myInlineSpan">
-					<b>My Bag,</b>&nbsp; {`${amount} items`}
+					<b>My Bag,</b>&nbsp; {`${totalProducts} items`}
 				</p>
 				<div className="eachItem">
-					{cart.map((item) => {
-						return <CartItem key={item.id} {...item} />;
-					})}
+					{cart.map((item) => <CartItem key={item.id} {...item} />)}
 
 					{/* cart footer */}
 					<footer className="myFlexParent">

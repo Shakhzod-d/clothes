@@ -1,38 +1,72 @@
 import React, { useState, useContext, useReducer, useEffect } from 'react';
-import cartItems from './data/data';
+// import cartItems from './boughtItems';
 import reducer from './reducer';
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
-const url = 'https://course-api.com/react-useReducer-cart-project';
+// const url = 'https://course-api.com/react-useReducer-cart-project';
 const AppContext = React.createContext();
 
-const initialState = {
-	loading: false,
-	cart: cartItems,
-	total: 0,
-	amount: 0
-};
-
 const AppProvider = ({ children }) => {
-	const [ state, dispatch ] = useReducer(reducer, initialState);
-	console.log(children);
+	const initialState = {
+		loading: false,
+		cart: [],
+		totalProducts: 0
+	};
+	const [ state, setState ] = useState(initialState);
+
+	const handleAddToCart = (clickedItem) => {
+		setState((prev) => {
+			return {
+				...prev,
+				totalProducts: prev.totalProducts + 1,
+				cart: [ ...prev.cart, clickedItem ]
+			};
+		});
+	};
+	// console.log(children);
 	const clearCart = () => {
-		dispatch({ type: 'CLEAR_CART' });
+		setState((oldState) => ({ ...oldState, cart: [], totalProducts: 0 }));
 	};
 	const removeItem = (id) => {
-		dispatch({ type: 'REMOVE', payload: id });
+		const idx = state.cart.findIndex((item) => item.id === id);
+
+		setState((oldState) => {
+			return {
+				...oldState,
+				cart: [ ...state.cart.slice(0, idx), ...state.cart.slice(idx + 1) ]
+			};
+		});
 	};
 	const increase = (id) => {
-		dispatch({ type: 'INCREASE', payload: id });
+		let dpCloneCart = JSON.parse(JSON.stringify(state.cart));
+		let idx = dpCloneCart.findIndex((item) => item.id === id);
+		dpCloneCart[idx].amount += 1;
+
+		setState((oldState) => {
+			return {
+				...oldState,
+				cart: dpCloneCart
+			};
+		});
 	};
 	const decrease = (id) => {
-		dispatch({ type: 'DECREASE', payload: id });
+		let dpCloneCart = JSON.parse(JSON.stringify(state.cart));
+		let idx = dpCloneCart.findIndex((item) => item.id === id);
+		dpCloneCart[idx].amount -= 1;
+
+		setState((oldState) => {
+			return {
+				...oldState,
+				cart: dpCloneCart
+			};
+		});
 	};
+
 	useEffect(
 		() => {
-			dispatch({ type: 'GET_TOTALS' });
-		},
-		[ state.cart ]
+			// dispatch({ type: 'GET_TOTALS' });
+		}
+		// [ state.cart, cartItems ]
 	);
 	return (
 		<AppContext.Provider
@@ -41,7 +75,8 @@ const AppProvider = ({ children }) => {
 				clearCart,
 				removeItem,
 				increase,
-				decrease
+				decrease,
+				handleAddToCart
 			}}
 		>
 			{children}
